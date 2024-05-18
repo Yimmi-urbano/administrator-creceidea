@@ -1,0 +1,26 @@
+.todo-list{
+	li{
+		border: 1px solid var(--accent-color);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 5px;
+		border-radius: 5px;
+		font-size: 1rem;
+		margin-bottom: 5px;
+		
+		.fa-check{
+			color: var(--color-400);
+		}
+		
+		&.active{
+			>span{
+				color: Red;
+				text-decoration: line-through;
+			}
+			.fa-check{
+				color: Red;
+			}
+		}
+	}
+}

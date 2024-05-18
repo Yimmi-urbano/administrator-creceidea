@@ -1,0 +1,52 @@
+<% listsPages.forEach(page=> { %>
+
+    <li class="col-12" id="element_<%= page._id %>">
+        <div class="bg-card p-3 rounded-1 d-flex align-items-center flex-column flex-md-row">
+     
+            <img class="avatar lg img-thumbnail ms-auto me-auto shadow" src="<%= page.image_default?? 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg' %>" alt="">
+            <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                <div class="row g-0 align-items-center">
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                        <h6 class="mb-1"> <%= page.title %></h6>
+                        <span class="text-muted fontSize-2">Id: <%= page._id %></span>
+                    </div>
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 text-center">
+                        <ul class="list-unstyled d-flex mb-0 text-center text-md-start">
+                            <li class="flex-fill p-2 rounded-start">
+                                <h6 class="mb-1">/<%- page.slug %></h6>
+                                <span class="small text-muted">Slug</span>
+                            </li>
+                            <li class="flex-fill p-2 mx-1">
+                                <h6 class="mb-1"><%- page.seo_description %></h6>
+                                <span class="small text-muted">Descripcion</span>
+                            </li>
+                            <li class="flex-fill p-2 rounded-end">
+                                <h6 class="mb-1"><%- page.seo_keywords  %></h6>
+                                <span class="small text-muted">Keywords</span>
+                            </li>
+                            <li  class="flex-fill p-2 rounded-end">
+                                <% if (page.is_available) { %>
+                                    <h6 class="mb-1">ACTIVE</h6>
+                                    <% } else { %>
+                                        <h6 class="mb-1">NO ACTIVE</h6>
+                                        <% } %>
+                                 <span class="small text-muted">Estado</span>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 text-center text-md-end mt-3 mt-md-0">
+                        <button type="button" class="btn px-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar"><i class="fa fa-edit"></i></button>
+                        <button type="button" data-idpage="<%= page._id %>" class="btn px-2 deletePageBtn" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar"><i class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+
+
+    <% }) %>
+
+
+
+    <script  type="module" src="/js/delete-page.js"></script>
