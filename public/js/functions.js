@@ -121,8 +121,9 @@ export async function postProducts(data_product) {
 }
 
 export async function deletePage(pageId) {
+  const domainPrimary = domain.split('.')[0];
   const myHeaders = new Headers();
-  myHeaders.append("domain", "donguston");
+  myHeaders.append("domain", domainPrimary);
 
   const requestOptions = {
     method: "DELETE",
