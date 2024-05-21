@@ -1,3 +1,6 @@
+import { DomainAsign } from "../../js/utils.js";
+const domain = DomainAsign();
+
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
@@ -444,11 +447,12 @@ function getCookieValue(cookieName) {
       imagePreviewHeight: 250,
       server: {
         process: (fieldName, file, metadata, load, error, progress, abort) => {
+            const domainPrimary = domain.split('.')[0];
           // Crear un FormData y agregar el archivo
           const formData = new FormData();
           formData.append(fieldName, file, file.name);
           const myHeaders = new Headers();
-          myHeaders.append("domain", "briamzsport");
+          myHeaders.append("domain", domainPrimary);
 
           // Realizar la solicitud Fetch
           fetch('https://api-upload.creceidea.pe/image/product', {
