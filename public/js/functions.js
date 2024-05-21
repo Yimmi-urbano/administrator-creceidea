@@ -13,11 +13,15 @@ export async function postProducts(data_product) {
     "image_default": [`${data_product.imageURL}`],
     "category": [],
     "stock": "100",
-    "is_aviable": true,
+    "is_available": true,
     "price": {
       "regular": data_product.regular_price,
       "sale": data_product.sale_price,
       "tag": ""
+    },
+    "is_trash": {
+      "date": "",
+      "status": false
     },
     "default_variations": [
       "attr002",
@@ -114,7 +118,11 @@ export async function postProducts(data_product) {
     }
 
     const data = await response.json();
-    alertExito()
+    const redirect = '/product/list';
+    const message = 'Producto creado correctamente.';
+    const title = 'Ok';
+    alertExito(title, message, redirect);
+
   } catch (error) {
     console.error('Error al guardar los productos:', error);
   }
@@ -142,6 +150,6 @@ export async function deletePage(pageId) {
   } catch (error) {
     console.error(error);
     alert(error.message);
-    return false; // Indicar que hubo un error
+    return false;
   }
 }

@@ -19,7 +19,8 @@
   <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
   <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
   <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-  <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+  <script
+    src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
   <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 
@@ -31,9 +32,23 @@
 </style> <![endif]-->
 
   <style>
-    .hidden{
-      display:  none !important;
+    #editorjs .ce-block__content {
+      max-width: 100%;
+      /* Cambia este valor según tus necesidades */
+      margin: 0 auto;
+      /* Esto centra el contenido */
     }
+
+    .ce-toolbar__actions {
+
+      right: 50% !important;
+
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
     .modal#statusSuccessModal .modal-content,
     .modal#statusErrorsModal .modal-content {
       border-radius: 30px;
@@ -138,74 +153,72 @@
       border-radius: 50%;
     }
   </style>
-    <style>
-             
-      .iconloader {
-          width: 55px
+  <style>
+    .iconloader {
+      width: 55px
+    }
+
+    #euN7XOFoa1B3 {
+      animation: euN7XOFoa1B3_c_o 1000ms linear infinite normal forwards
+    }
+
+    @keyframes euN7XOFoa1B3_c_o {
+      0% {
+        opacity: 0
       }
 
-      #euN7XOFoa1B3 {
-          animation: euN7XOFoa1B3_c_o 1000ms linear infinite normal forwards
+      26.315789% {
+        opacity: 1
       }
 
-      @keyframes euN7XOFoa1B3_c_o {
-          0% {
-              opacity: 0
-          }
+      100% {
+        opacity: 1
+      }
+    }
 
-          26.315789% {
-              opacity: 1
-          }
+    #euN7XOFoa1B4 {
+      animation: euN7XOFoa1B4_c_o 1000ms linear infinite normal forwards
+    }
 
-          100% {
-              opacity: 1
-          }
+    @keyframes euN7XOFoa1B4_c_o {
+      0% {
+        opacity: 0
       }
 
-      #euN7XOFoa1B4 {
-          animation: euN7XOFoa1B4_c_o 1000ms linear infinite normal forwards
+      26.315789% {
+        opacity: 0
       }
 
-      @keyframes euN7XOFoa1B4_c_o {
-          0% {
-              opacity: 0
-          }
-
-          26.315789% {
-              opacity: 0
-          }
-
-          52.631579% {
-              opacity: 1
-          }
-
-          100% {
-              opacity: 1
-          }
+      52.631579% {
+        opacity: 1
       }
 
-      #euN7XOFoa1B5 {
-          animation: euN7XOFoa1B5_c_o 1000ms linear infinite normal forwards
+      100% {
+        opacity: 1
+      }
+    }
+
+    #euN7XOFoa1B5 {
+      animation: euN7XOFoa1B5_c_o 1000ms linear infinite normal forwards
+    }
+
+    @keyframes euN7XOFoa1B5_c_o {
+      0% {
+        opacity: 0
       }
 
-      @keyframes euN7XOFoa1B5_c_o {
-          0% {
-              opacity: 0
-          }
-
-          52.631579% {
-              opacity: 0
-          }
-
-          78.947368% {
-              opacity: 1
-          }
-
-          100% {
-              opacity: 1
-          }
+      52.631579% {
+        opacity: 0
       }
-      
+
+      78.947368% {
+        opacity: 1
+      }
+
+      100% {
+        opacity: 1
+      }
+    }
   </style>
 </head>
 
@@ -239,11 +252,14 @@
               <div class="btn-group" role="group">
                 <button type="button" class="btn bg-transparent rounded-pill dropdown-toggle" data-bs-toggle="dropdown"
                   aria-expanded="false">Empresa</button>
-                <ul class="dropdown-menu p-2 p-xl-3 shadow rounded-4" >
-                  <% domains.forEach(domain => { %>
-                    <li><a class="dropdown-item rounded-pill changed-domain" href="#" data-domain="<%= domain.domain %>"><%= domain.domain %></a></li>
-                <% }) %>
-                 
+                <ul class="dropdown-menu p-2 p-xl-3 shadow rounded-4">
+                  <% domains.forEach(domain=> { %>
+                    <li><a class="dropdown-item rounded-pill changed-domain" href="#"
+                        data-domain="<%= domain.domain %>">
+                        <%= domain.domain %>
+                      </a></li>
+                    <% }) %>
+
                 </ul>
               </div>
               <button type="button" class="btn bg-transparent rounded-pill">
@@ -360,8 +376,8 @@
     <!-- start: page header -->
     <header class="px-md-4 px-2" data-bs-theme="none">
       <div class="d-flex justify-content-between align-items-center py-2 w-100">
-        <button type="button" class="btn text-accent hidden btn-link p-0 me-3 d-none d-md-inline-flex" data-bs-toggle="modal"
-          data-bs-target="#FullscreenMenu">
+        <button type="button" class="btn text-accent hidden btn-link p-0 me-3 d-none d-md-inline-flex"
+          data-bs-toggle="modal" data-bs-target="#FullscreenMenu">
           <svg class="svg-stroke" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -954,9 +970,9 @@
 
                 </ul>
               </li>
-       
+
             </ul>
-     
+
             <div class="bg-gradient rounded-3 p-4 text-white mt-4 promo  hidden d-none">
               <p class="lh-sm fw-light">Explore our portfolio for more products.</p>
               <a href="https://themeforest.net/user/pixelwibes/portfolio"
@@ -1794,61 +1810,61 @@
  }, 50);
  */
 
-function setCookie(name, value, days) {
+  function setCookie(name, value, days) {
     var expires = "";
     if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
+  }
 
-document.querySelectorAll('.changed-domain').forEach(function(element) {
-    element.addEventListener('click', function(event) {
-        event.preventDefault(); 
-        var domainValue = event.target.getAttribute('data-domain');
-        setCookie('domain', domainValue, 7);
-        console.log('Cookie "Domain" creada con el valor: ' + domainValue);
-        window.location.reload(); 
+  document.querySelectorAll('.changed-domain').forEach(function (element) {
+    element.addEventListener('click', function (event) {
+      event.preventDefault();
+      var domainValue = event.target.getAttribute('data-domain');
+      setCookie('domain', domainValue, 7);
+      console.log('Cookie "Domain" creada con el valor: ' + domainValue);
+      window.location.reload();
     });
-});
+  });
 
 </script>
-<div class="modal" id="loaderModal" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false"> 
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document"> 
-      <div class="modal-content"> 
-          <div class="modal-body text-center p-lg-4"> 
-          <svg class="iconloader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+<div class="modal" id="loaderModal" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center p-lg-4">
+        <svg class="iconloader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
           id="euN7XOFoa1B1" viewBox="0 0 265 300" shape-rendering="geometricPrecision"
           text-rendering="geometricPrecision">
-      
+
           <defs>
-              <linearGradient id="euN7XOFoa1B5-fill" x1="0.051639" y1="0.127369" x2="0.977096" y2="0.925965"
-                  spreadMethod="pad" gradientUnits="objectBoundingBox" gradientTransform="translate(0 0)">
-                  <stop id="euN7XOFoa1B5-fill-0" offset="0%" stop-color="#fd7104" />
-                  <stop id="euN7XOFoa1B5-fill-1" offset="100%" stop-color="#fac202" />
-              </linearGradient>
+            <linearGradient id="euN7XOFoa1B5-fill" x1="0.051639" y1="0.127369" x2="0.977096" y2="0.925965"
+              spreadMethod="pad" gradientUnits="objectBoundingBox" gradientTransform="translate(0 0)">
+              <stop id="euN7XOFoa1B5-fill-0" offset="0%" stop-color="#fd7104" />
+              <stop id="euN7XOFoa1B5-fill-1" offset="100%" stop-color="#fac202" />
+            </linearGradient>
           </defs>
           <g transform="matrix(5.3438 0 0 5.343784-516.454302-344.986279)">
-              <path id="euN7XOFoa1B3"
-                  d="M107.016585,68.455297l10.113155,6.581859v23.94604q-10.113155-29.097283-10.113155-30.527899Z"
-                  transform="matrix(1.472237-.026934 0.019675 1.075443-61.416955-5.398652)" opacity="0" fill="#ffe700"
-                  stroke="#3f5787" stroke-width="0" />
-              <path id="euN7XOFoa1B4"
-                  d="M108.87615,77.848333l6.596305-2.50109l7.300188,34.840158Q108.87615,79.278949,108.87615,77.848333Z"
-                  transform="matrix(1.125028 0.950009-.693965 0.821813 49.496995-91.686526)" opacity="0" fill="#ffb407"
-                  stroke="#3f5787" stroke-width="0" />
-              <path id="euN7XOFoa1B5"
-                  d="M105.927945,81.598212l7.870067-9.39774l9.671739,42.033645c-11.815674-21.256674-18.442092-35.049942-17.541806-32.635905Z"
-                  transform="matrix(.61996 1.33561-.97564 0.45287 145.567466-96.450158)" opacity="0"
-                  fill="url(#euN7XOFoa1B5-fill)" stroke="#3f5787" stroke-width="0" stroke-linecap="square" />
+            <path id="euN7XOFoa1B3"
+              d="M107.016585,68.455297l10.113155,6.581859v23.94604q-10.113155-29.097283-10.113155-30.527899Z"
+              transform="matrix(1.472237-.026934 0.019675 1.075443-61.416955-5.398652)" opacity="0" fill="#ffe700"
+              stroke="#3f5787" stroke-width="0" />
+            <path id="euN7XOFoa1B4"
+              d="M108.87615,77.848333l6.596305-2.50109l7.300188,34.840158Q108.87615,79.278949,108.87615,77.848333Z"
+              transform="matrix(1.125028 0.950009-.693965 0.821813 49.496995-91.686526)" opacity="0" fill="#ffb407"
+              stroke="#3f5787" stroke-width="0" />
+            <path id="euN7XOFoa1B5"
+              d="M105.927945,81.598212l7.870067-9.39774l9.671739,42.033645c-11.815674-21.256674-18.442092-35.049942-17.541806-32.635905Z"
+              transform="matrix(.61996 1.33561-.97564 0.45287 145.567466-96.450158)" opacity="0"
+              fill="url(#euN7XOFoa1B5-fill)" stroke="#3f5787" stroke-width="0" stroke-linecap="square" />
           </g>
-      </svg>
-           
-          </div> 
-      </div> 
-  </div> 
+        </svg>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 </html>

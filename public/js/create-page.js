@@ -1,4 +1,4 @@
-import { DomainAsign, alertExito,alertError } from "/js/utils.js";
+import { DomainAsign, alertExito, alertError } from "/js/utils.js";
 const domain = DomainAsign();
 
 var editor = new EditorJS({
@@ -41,6 +41,8 @@ var editor = new EditorJS({
         },
         header: {
             class: Header,
+            inlineToolbar: true,
+            tunes: ['customTune'],
             config: {
                 placeholder: 'Header'
             },
@@ -55,6 +57,24 @@ var editor = new EditorJS({
             class: Checklist,
             inlineToolbar: true,
         },
+        embed: Embed,
+        table: {
+            class: Table,
+            inlineToolbar: true,
+            shortcut: 'CMD+ALT+T'
+        },
+        paragraph: {
+            class: Paragraph,
+            inlineToolbar: true,
+            tunes: ['customTune']
+          },
+        customTune: {
+          class: CustomTool.default,
+          config: {
+            defaultColor: '#000000',
+            defaultSize: '16px'
+          }
+        }
     }
 });
 
