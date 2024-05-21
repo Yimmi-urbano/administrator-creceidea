@@ -447,6 +447,18 @@ function getCookieValue(cookieName) {
       imagePreviewHeight: 250,
       server: {
         process: (fieldName, file, metadata, load, error, progress, abort) => {
+            var url = new URL(window.location.href);
+            var ruta = url.pathname;
+            var partes = ruta.split('/');
+            var pathname;
+
+
+            if (partes[1]=="product") {
+                pathname='product'
+            }else{
+                 pathname='banner'
+            }
+
             const domainPrimary = domain.split('.')[0];
           // Crear un FormData y agregar el archivo
           const formData = new FormData();
@@ -455,7 +467,7 @@ function getCookieValue(cookieName) {
           myHeaders.append("domain", domainPrimary);
 
           // Realizar la solicitud Fetch
-          fetch('https://api-upload.creceidea.pe/image/product', {
+          fetch('https://api-upload.creceidea.pe/image/'+pathname, {
             method: 'POST',
             headers: myHeaders,
             body: formData
@@ -472,7 +484,6 @@ function getCookieValue(cookieName) {
             })
             .then(data => {
               // Manejar los datos recibidos
-              console.log(data);
               // Suponiendo que `data` tiene una propiedad `url` con la URL de la imagen
               $('#image_url').val(data.imageUrl);
               load(data.url); // Llamar a `load` con la URL de la imagen
