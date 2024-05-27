@@ -11,7 +11,7 @@ async function fetchProducts(domain) {
             headers: headers
         });
 
-        return response.data;
+        return response.data.products;
     } catch (error) {
         throw new Error('Error al obtener datos de la API');
     }

@@ -1,7 +1,6 @@
 import { DomainAsign, alertExito, closedLoader } from "./utils.js";
 const domain = DomainAsign();
 
-
 export async function postProducts(data_product) {
   const domainPrimary = domain.split('.')[0];
   event.preventDefault();
@@ -141,6 +140,32 @@ export async function deletePage(pageId) {
 
   try {
     const response = await fetch(`https://api-pages.creceidea.pe/api/pages/${pageId}`, requestOptions);
+    if (response.status === 200) {
+      const result = await response.text();
+      return true;
+    } else {
+      throw new Error(`Error: ${response.status}`);
+    }
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+    return false;
+  }
+}
+
+export async function deleteProduct(productID) {
+  const domainPrimary = domain.split('.')[0];
+  const myHeaders = new Headers();
+  myHeaders.append("domain", domainPrimary);
+
+  const requestOptions = {
+    method: "DELETE",
+    headers: myHeaders,
+    redirect: "follow"
+  };
+
+  try {
+    const response = await fetch(`https://api-products.creceidea.pe/api/products/${productID}/trash`, requestOptions);
     if (response.status === 200) {
       const result = await response.text();
       return true;
