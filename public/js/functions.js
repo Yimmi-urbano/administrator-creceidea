@@ -178,3 +178,67 @@ export async function deleteProduct(productID) {
     return false;
   }
 }
+
+export async function printCategories() {
+  const domains = DomainAsign();
+  console.log(domains)
+  const domainPrimary = domains.split('.')[0];
+  const myHeaders = new Headers();
+  myHeaders.append("domain", domainPrimary);
+
+  const requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow"
+  };
+
+  try {
+    const response = await fetch(`https://api-products.creceidea.pe/api/categories`, requestOptions);
+    if (response.status === 200) {
+      const optionsArray = await response.json();
+      createCheckboxes(optionsArray);
+    } else {
+      throw new Error(`Error: ${response.status}`);
+    }
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+    
+  }
+
+  
+}
+// Función para generar dinámicamente los checkboxes
+function createCheckboxes(array) {
+  const form = document.getElementById('checkbox-form');
+  form.innerHTML = '';  // Limpiar el contenido previo
+
+  array.forEach(option => {
+      // Crear un checkbox
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = option;
+      checkbox.name = 'options';
+      checkbox.value = option;
+
+      // Crear una etiqueta para el checkbox
+      const label = document.createElement('label');
+      label.htmlFor = option;
+      label.textContent = option.charAt(0).toUpperCase() + option.slice(1);  // Capitalizar la primera letra
+
+      // Añadir el checkbox y la etiqueta al formulario
+      form.appendChild(checkbox);
+      form.appendChild(label);
+      form.appendChild(document.createElement('br'));
+  });
+}
+
+// Función para obtener las opciones seleccionadas
+export function getSelectedOptions() {
+  const checkboxes = document.querySelectorAll('input[name="options"]:checked');
+  const selectedOptions = Array.from(checkboxes).map(checkbox => checkbox.value);
+  console.log(selectedOptions);
+  // Aquí puedes manejar los datos, como enviarlos a un servidor o mostrarlos en la página
+}
+
+

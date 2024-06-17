@@ -40,7 +40,7 @@ async function fetchDomain(url) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const jsonData = await response.json();
-        return jsonData.data;
+        return jsonData;
     } catch (error) {
         console.error('Error fetching JSON data:', error);
         return [];

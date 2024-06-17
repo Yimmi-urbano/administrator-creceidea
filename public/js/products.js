@@ -1,10 +1,11 @@
-import { postProducts } from './functions.js';
+import { postProducts, printCategories, getSelectedOptions } from './functions.js';
 
 const button = document.getElementById('guardar_products');
 const title = document.getElementById('title');
 const price_regular = document.getElementById('price-regular');
 const price_sale = document.getElementById('price-sale');
 const imageURL = document.getElementById('image_url');
+const getSelectedOptionsBTN = document.getElementById('getSelectedOptions');
 
 
 button.addEventListener('click', () => {
@@ -14,7 +15,7 @@ button.addEventListener('click', () => {
     const image_url = imageURL.value.trim();
     const descriptionShort = tinymce.get('tinymce-mytextarea').getContent();
 
-    const data_product = {descriptionShort:descriptionShort,imageURL:image_url,title_product:title_product,regular_price:regular_price,sale_price:sale_price}
+    const data_product = { descriptionShort: descriptionShort, imageURL: image_url, title_product: title_product, regular_price: regular_price, sale_price: sale_price }
 
 
     if (title_product === '') {
@@ -29,3 +30,10 @@ button.addEventListener('click', () => {
         alert('Hubo un error al guardar el producto');
     }
 });
+
+getSelectedOptionsBTN.addEventListener('click', () => {
+
+    getSelectedOptions()
+})
+
+printCategories()
